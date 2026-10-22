@@ -24,8 +24,13 @@ This repository was developed to support training and educational activities ass
 
 Contributions, corrections, and suggestions from the research computing and HPC communities are welcome.
 
+This work is derived from work that is Copyright © Software Carpentry http://software-carpentry.org/), [license][cc-by-human], and https://github.com/ARCCA/intro_singularity
+
+
 ## Contributors
 
 Additional contributors will be acknowledged here as the project evolves.
 
 For a complete history of contributions, see the Git commit history.
+
+[cc-by-human]: https://creativecommons.org/licenses/by/4.0/

@@ -95,10 +95,10 @@ apptainer can use Docker images as seen earlier, opening up access to a huge num
 
 While apptainer doesn't support running Docker images directly, it can pull them from Docker Hub and convert them into a suitable format for running via apptainer. When you pull a Docker image, apptainer pulls the slices or _layers_ that make up the Docker image and converts them into a single-file apptainer SIF image.
 
-For example, moving on from the simple _Hello World_ examples that we've looked at so far, let's pull one of the [official Docker Python images](https://hub.docker.com/_/python). We'll use the image with the tag `3.8.2-slim-buster` which has Python 3.8.2 installed on Debian's [Buster](https://www.debian.org/releases/buster/) (v10) Linux distribution:
+For example, moving on from the simple _Hello World_ examples that we've looked at so far, let's pull one of the [official Docker Python images](https://hub.docker.com/_/python). We'll use the image with the tag `3.14-slim` which has Python 3.14 installed on Debian's [Trixie]:
 
 ~~~
-$ apptainer pull python-3.8.2.sif docker://python:3.8.2-slim-buster
+$ apptainer pull python-3.14.sif docker://python:3.14-slim
 ~~~
 {: .language-bash}
 
@@ -123,21 +123,26 @@ INFO:    Creating SIF file...
 ~~~
 {: .output}
 
-Note how we see apptainer saying that it's "_Converting OCI blobs to SIF format_". We then see the layers of the Docker image being downloaded and unpacked and written into a single SIF file. Once the process is complete, we should see the python-3.8.2.sif image file in the current directory.
+Note how we see apptainer saying that it's "_Converting OCI blobs to SIF format_". We then see the layers of the Docker image being downloaded and unpacked and written into a single SIF file. Once the process is complete, we should see the python-3.14.sif image file in the current directory.
 
 We can now run a container from this image as we would with any other apptainer image.
 
-#### Exercise: Running the Python 3.8.2 image that we just pulled from Docker Hub
+#### Exercise: Running the Python 3.14 image that we just pulled from Docker Hub
 ~~~
- Try running the Python 3.8.2 image. What happens?
+ Try running the Python 3.14 image. What happens?
 ~~~ 
 In addition to running a container and having it run the default run script, you could also start a container running a shell in case you want to undertake any configuration prior to running Python. This is covered in the following exercise:
 
 ####  Exercise: Open a shell within a Python container
 ~~~
-Try to run a shell within a apptainer container based on the `python-3.8.2.sif` image. That is, run a container that opens a shell rather than the default Python interactive console as we saw above.
+Try to run a shell within a apptainer container based on the `python-3.14.sif` image. That is, run a container that opens a shell rather than the default Python interactive console as we saw above.
 
 See if you can find more than one way to achieve this.
 
 Within the shell, try starting the Python interactive console and running some Python commands.
+~~~
+
+####  Exercise: Run a python script using apptainer
+~~~
+Create a simple python script or copy one from this repository, and execute it with you apptainer python environment.
 ~~~
