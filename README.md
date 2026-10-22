@@ -49,5 +49,4 @@ This repository is provided for educational, training, and research purposes.
 
 Please refer to the LICENSE file for terms of use.
 
-## Author
 
