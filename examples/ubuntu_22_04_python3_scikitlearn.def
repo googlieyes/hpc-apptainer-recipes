@@ -1,0 +1,59 @@
+#-----------------------------HEADER-----------------------------
+Bootstrap: docker
+From: ubuntu:22.04
+ 
+#-----------------------------SECTION-----------------------------
+
+%post
+	#Execute instructions after the bootstrap/base has been created
+
+        apt update 
+        apt-get install -y python3-pip
+        apt-get clean
+        pip3 install --no-cache-dir --upgrade pip
+        pip3 install --no-cache-dir scikit-learn
+
+%environment
+        #Define environment variable to be set at runtime
+
+        PATH=/usr/local/bin:/$PATH
+        LD_LIBRARY_PATH=/usr/local/lib/$LD_LIBRARY_PATH
+
+%test
+        #Define any test commands to validate the container.
+        #This section will run at the very end, just before the image has been built
+        #Any non-zero value will be assume as a failure, and the image won't be created
+
+        grep -q NAME=\"Ubuntu\" /etc/os-release
+        if [ $? -eq 0 ]; then
+                PYTHON_VER="$(python3 -V)"
+                echo "$PYTHON_VER installed on Ubuntu as expected"
+        else
+                echo "Container base is not Ubuntu"
+                exit 1
+        fi
+
+%help
+        #Help to the runscript (displayed by run-help);
+
+        Python3 on Ubuntu 20.04.
+        USAGE:
+                apptainer run python3.sif
+                The container opens a Python3 shell
+
+                apptainer exec python3.sif <NAME PYTHON SCRIPT>
+                The container will execute the Python script passed.
+
+
+%runscript
+        #Define commands executed with the run command. Every instruction passed after the container
+        #name will be passed to this section (see %help)
+
+        echo "Running Python3:"
+        exec /usr/bin/python3 "$@"
+
+%labels
+        #This section is used to add metadata in the form KEY VALUE
+        Author USER
+        email USER@...
+        Cite  doi:...

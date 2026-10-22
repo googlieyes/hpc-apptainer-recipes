@@ -1,0 +1,12 @@
+# ------------------- Header -------------------
+Bootstrap: docker
+From: python:3.14-slim
+
+# ------------------- Section -------------------
+%post
+	python3 -m venv /opt/venv
+	/opt/venv/bin/pip3 install pandas seaborn
+
+
+%runscript
+	exec /opt/venv/bin/python "$@"
