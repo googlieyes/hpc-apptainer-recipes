@@ -1,0 +1,10 @@
+{
+  "_comment": "Place this file at ~/projects/.vscode/settings.json. Replace <username> with your HPC username.",
+  "python.defaultInterpreterPath": "/home/<username>/bin/vscode-python-wrapper.sh",
+  "terminal.integrated.profiles.linux": {
+    "Container shell": {
+      "path": "/home/<username>/bin/vscode-shell-wrapper.sh"
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "Container shell"
+}
