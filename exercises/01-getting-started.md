@@ -149,3 +149,8 @@ $ echo $APPTAINER_CACHEDIR
 ~~~
 {: .language-bash}
 
+## References
+
+https://github.com/ARCCA/intro_singularity/
+
+\[1\] Gregory M. Kurzer, Containers for Science, Reproducibility and Mobility: Singularity P2. Intel HPC Developer Conference, 2017. Available at: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/hpc-containers-singularity-advanced.pdf
