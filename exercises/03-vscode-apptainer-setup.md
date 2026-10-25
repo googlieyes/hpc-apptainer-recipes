@@ -1,7 +1,6 @@
 # VS Code + Containerised Python on an HPC Cluster (Apptainer)
 
-A companion to the "Create an interactive container" part of the workshop
-(slides 30 onward). It describes how to set up and use a reproducible Python
+A companion to the "Create an interactive container" part of the workshop. It describes how to set up and use a reproducible Python
 environment from VS Code, with Python running inside an Apptainer container on
 HPC compute nodes.
 
